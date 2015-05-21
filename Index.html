@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <link rel="stylesheet" href="css/main.css">
+    <meta charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="js/register.js"></script>
+    <script src="js/validator.js"></script>
+    <script src="js/ajax.js"></script>
+</head>
+<body>
+
+<div id="main-block">
+    <div id="wrapper">
+        <h1>Place your comment</h1>
+
+        <div class="block-info">
+            <p>Please fill your data and comment below.</p>
+        </div>
+        <form action="php/register.php" id="customer-register">
+            <div class="fieldsLeft">
+                <input type="text" name="name" placeholder="Name" class="validate-name fields">
+                <input type="text" name="Email" placeholder="Email" class="validate-email fields">
+                <input type="text" name="Website" placeholder="Website" class="validate-website fields">
+            </div>
+            <div class="fields-texterea">
+                <p>Your comment</p>
+                <textarea name="text" class="validate-text"></textarea>
+                <input type="submit" name="submit" value="submit" class="button-submit">
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#customer-register").submit(function () {
+            event.preventDefault();
+            var idForm = "#" + $(this).attr('id');
+            Register.registerCustomer(idForm);
+        });
+    });
+</script>
+
+</body>
+</html>
